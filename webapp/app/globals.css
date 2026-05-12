@@ -1,0 +1,62 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* ── Design System Tokens ─────────────────────────── */
+
+:root {
+  --sotw-bg:         #F9F7F4;
+  --sotw-surface:    #FFFFFF;
+  --sotw-surface-alt:#FAFAF9;
+  --sotw-border:     #E8E2DA;
+  --sotw-text:       #1E1610;
+  --sotw-text-2:     #6B5E52;
+  --sotw-text-3:     #B8A99A;
+  --sotw-moss:       #2D6B52;
+  --sotw-moss-bg:    #E8F0EC;
+  --sotw-moss-hover: #245840;
+  --sotw-amber:      #B8712A;
+}
+
+html.dark {
+  --sotw-bg:         #1C1917;
+  --sotw-surface:    #252220;
+  --sotw-surface-alt:#2A2520;
+  --sotw-border:     #3A332B;
+  --sotw-text:       #F0EDE8;
+  --sotw-text-2:     #B8A99A;
+  --sotw-text-3:     #6B5E52;
+  --sotw-moss:       #4CAF85;
+  --sotw-moss-bg:    #1A3528;
+  --sotw-moss-hover: #3D9A70;
+  --sotw-amber:      #D4924A;
+}
+
+body {
+  background-color: var(--sotw-bg);
+  color: var(--sotw-text);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+/* ── Prose (article body) dark mode ──────────────── */
+html.dark .prose {
+  --tw-prose-body: var(--sotw-text);
+  --tw-prose-headings: var(--sotw-text);
+  --tw-prose-bold: var(--sotw-text);
+  --tw-prose-links: var(--sotw-moss);
+  --tw-prose-quotes: var(--sotw-text-2);
+  --tw-prose-quote-borders: var(--sotw-border);
+  --tw-prose-captions: var(--sotw-text-3);
+  --tw-prose-code: var(--sotw-text);
+  --tw-prose-hr: var(--sotw-border);
+  --tw-prose-td-borders: var(--sotw-border);
+  --tw-prose-th-borders: var(--sotw-border);
+  --tw-prose-counters: var(--sotw-text-2);
+  --tw-prose-bullets: var(--sotw-text-3);
+}

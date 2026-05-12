@@ -1,0 +1,11 @@
+# Claude Code
+.claude/settings.local.json
+
+# Playwright MCP
+.playwright-mcp/
+
+# macOS
+.DS_Store
+
+# Memory (personal, not for sharing)
+.claude/projects/

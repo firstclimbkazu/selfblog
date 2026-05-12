@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="Claude Agent">
+  <diagram name="画面フロー図">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- タイトル -->
+        <mxCell id="title" value="ブログサイト 画面フロー図" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="30" width="500" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- 開始 -->
+        <mxCell id="start" value="開始" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;fontColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="90" width="60" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- トップページ（記事一覧） -->
+        <mxCell id="top" value="トップページ&#xa;（記事一覧）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="170" width="160" height="55" as="geometry"/>
+        </mxCell>
+
+        <!-- 判断: ユーザーのアクション -->
+        <mxCell id="action1" value="どこをクリック？" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="455" y="265" width="210" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- 記事カードをクリック -->
+        <mxCell id="post_detail" value="記事詳細ページ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="200" y="265" width="140" height="55" as="geometry"/>
+        </mxCell>
+
+        <!-- カテゴリをクリック -->
+        <mxCell id="cat_list" value="カテゴリ一覧ページ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="200" y="420" width="150" height="55" as="geometry"/>
+        </mxCell>
+
+        <!-- タグをクリック -->
+        <mxCell id="tag_list" value="タグ一覧ページ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="420" width="150" height="55" as="geometry"/>
+        </mxCell>
+
+        <!-- ナビ: プロフィール -->
+        <mxCell id="profile" value="プロフィールページ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="760" y="265" width="150" height="55" as="geometry"/>
+        </mxCell>
+
+        <!-- ナビ: お問い合わせ -->
+        <mxCell id="contact" value="お問い合わせページ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="760" y="420" width="150" height="55" as="geometry"/>
+        </mxCell>
+
+        <!-- カテゴリ別記事一覧 -->
+        <mxCell id="cat_detail" value="カテゴリ別記事一覧" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="200" y="540" width="150" height="55" as="geometry"/>
+        </mxCell>
+
+        <!-- タグ別記事一覧 -->
+        <mxCell id="tag_detail" value="タグ別記事一覧" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="540" width="150" height="55" as="geometry"/>
+        </mxCell>
+
+        <!-- 記事詳細の判断 -->
+        <mxCell id="post_action" value="次のアクション？" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="160" y="370" width="220" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- 終了（閲覧完了） -->
+        <mxCell id="end1" value="終了" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;fontColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="390" width="60" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- ===== エッジ ===== -->
+
+        <!-- 開始 → トップページ -->
+        <mxCell id="e_start" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="start" target="top" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- トップページ → 判断 -->
+        <mxCell id="e_top_action" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="top" target="action1" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 判断 → 記事詳細（記事カードクリック） -->
+        <mxCell id="e_action_post" value="記事カード" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;" edge="1" source="action1" target="post_detail" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 判断 → カテゴリ一覧（カテゴリクリック） -->
+        <mxCell id="e_action_cat" value="カテゴリ" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;" edge="1" source="action1" target="cat_list" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="560" y="335"/>
+              <mxPoint x="275" y="335"/>
+              <mxPoint x="275" y="420"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 判断 → タグ一覧（タグクリック） -->
+        <mxCell id="e_action_tag" value="タグ" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;" edge="1" source="action1" target="tag_list" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="560" y="335"/>
+              <mxPoint x="560" y="420"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 判断 → プロフィール（ナビクリック） -->
+        <mxCell id="e_action_profile" value="プロフィール&#xa;（ナビ）" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;" edge="1" source="action1" target="profile" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 判断 → お問い合わせ（ナビクリック） -->
+        <mxCell id="e_action_contact" value="お問い合わせ&#xa;（ナビ）" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;" edge="1" source="action1" target="contact" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="665" y="300"/>
+              <mxPoint x="760" y="300"/>
+              <mxPoint x="760" y="447"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 記事詳細 → 判断（次のアクション） -->
+        <mxCell id="e_post_action" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="post_detail" target="post_action" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 次のアクション → 終了（閲覧完了） -->
+        <mxCell id="e_post_end" value="閲覧完了" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;" edge="1" source="post_action" target="end1" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 次のアクション → トップページに戻る -->
+        <mxCell id="e_post_back" value="一覧に戻る" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" source="post_action" target="top" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="270" y="150"/>
+              <mxPoint x="560" y="150"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- カテゴリ一覧 → カテゴリ別記事一覧 -->
+        <mxCell id="e_cat" value="カテゴリ選択" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;" edge="1" source="cat_list" target="cat_detail" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- タグ一覧 → タグ別記事一覧 -->
+        <mxCell id="e_tag" value="タグ選択" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;" edge="1" source="tag_list" target="tag_detail" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- カテゴリ別記事一覧 → 記事詳細 -->
+        <mxCell id="e_cat_post" value="記事クリック" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;" edge="1" source="cat_detail" target="post_detail" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="275" y="660"/>
+              <mxPoint x="270" y="660"/>
+              <mxPoint x="270" y="292"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- タグ別記事一覧 → 記事詳細 -->
+        <mxCell id="e_tag_post" value="記事クリック" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;" edge="1" source="tag_detail" target="post_detail" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="555" y="660"/>
+              <mxPoint x="270" y="660"/>
+              <mxPoint x="270" y="292"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

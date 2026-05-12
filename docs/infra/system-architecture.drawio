@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="Claude Agent">
+  <diagram name="システム構成図">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- ユーザー -->
+        <mxCell id="2" value="ユーザー&#xa;（ブラウザ）" style="shape=mxgraph.cisco.computers_and_peripherals.pc;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=#dae8fc;strokeColor=#6c8ebf;points=[[0.5,0],[0.5,1],[0,0.5],[1,0.5]];align=center;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="320" width="80" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="2b" value="ユーザー&#xa;（ブラウザ）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="320" width="120" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Vercel Edge Network (CDN) -->
+        <mxCell id="3" value="Vercel Edge Network&#xa;（CDN）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="320" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Next.js アプリ -->
+        <mxCell id="4" value="Next.js アプリケーション&#xa;（Vercel）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="320" width="180" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- GitHub -->
+        <mxCell id="5" value="GitHub&#xa;リポジトリ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="160" width="180" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- CMS (TBD) -->
+        <mxCell id="6" value="CMS&#xa;（TBD）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="480" width="180" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Vercel CI/CD -->
+        <mxCell id="7" value="Vercel CI/CD&#xa;（自動デプロイ）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="160" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- エッジ: ユーザー → CDN -->
+        <mxCell id="e1" value="HTTPSリクエスト" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" source="2b" target="3" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- エッジ: CDN → Next.js -->
+        <mxCell id="e2" value="オリジンリクエスト&#xa;（キャッシュミス時）" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" source="3" target="4" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- エッジ: GitHub → Vercel CI/CD -->
+        <mxCell id="e3" value="push / PR" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" source="5" target="7" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- エッジ: Vercel CI/CD → Next.js -->
+        <mxCell id="e4" value="デプロイ" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" source="7" target="4" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- エッジ: Next.js → CMS -->
+        <mxCell id="e5" value="コンテンツ取得&#xa;（API）" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;" edge="1" source="4" target="6" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- タイトル -->
+        <mxCell id="title" value="ブログサイト システム構成図（Next.js + Vercel）" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="60" width="560" height="40" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
