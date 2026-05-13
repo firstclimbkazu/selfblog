@@ -10,7 +10,7 @@ test.describe("モバイルレイアウト", () => {
   });
 
   test("ハンバーガーをクリックするとメニューが開く", async ({ page }) => {
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/", { waitUntil: "load" });
     await page.getByRole("button", { name: "メニューを開く" }).click();
     await expect(page.getByRole("link", { name: "カテゴリ" }).last()).toBeVisible();
     await expect(page.getByRole("link", { name: "タグ" }).last()).toBeVisible();
@@ -18,7 +18,7 @@ test.describe("モバイルレイアウト", () => {
   });
 
   test("モバイルメニューのリンクをクリックするとメニューが閉じる", async ({ page }) => {
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+    await page.goto("/", { waitUntil: "load" });
     await page.getByRole("button", { name: "メニューを開く" }).click();
     await page.getByRole("link", { name: "プロフィール" }).last().click();
     await expect(page).toHaveURL("/profile");

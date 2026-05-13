@@ -4,7 +4,7 @@ test.describe("ダークモード", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("/", { waitUntil: "domcontentloaded" });
     await page.evaluate(() => localStorage.removeItem("theme"));
-    await page.reload({ waitUntil: "domcontentloaded" });
+    await page.reload({ waitUntil: "load" });
   });
 
   test("トグルをクリックするとdarkクラスが付与される", async ({ page }) => {
@@ -26,6 +26,7 @@ test.describe("ダークモード", () => {
   test("ダークモード設定がlocalStorageに保存される", async ({ page }) => {
     const toggle = page.getByRole("button", { name: "ダークモードに切り替え" }).first();
     await toggle.click();
+    await expect(page.locator("html")).toHaveClass(/dark/);
     const theme = await page.evaluate(() => localStorage.getItem("theme"));
     expect(theme).toBe("dark");
   });
