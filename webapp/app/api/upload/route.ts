@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { put } from "@vercel/blob";
 import { randomUUID } from "crypto";
+import { writeFile, mkdir } from "fs/promises";
+import { join } from "path";
 import { isFileTooLarge, extractExtension } from "@/lib/upload";
 
 export async function POST(req: NextRequest) {
@@ -16,9 +18,16 @@ export async function POST(req: NextRequest) {
   }
 
   const ext = extractExtension(file.name);
-  const filename = `thumbnails/${randomUUID()}.${ext}`;
+  const filename = `${randomUUID()}.${ext}`;
 
-  const blob = await put(filename, file, { access: "public" });
+  if (!process.env.BLOB_READ_WRITE_TOKEN) {
+    const uploadDir = join(process.cwd(), "public", "uploads");
+    await mkdir(uploadDir, { recursive: true });
+    const buffer = Buffer.from(await file.arrayBuffer());
+    await writeFile(join(uploadDir, filename), buffer);
+    return NextResponse.json({ url: `/uploads/${filename}` });
+  }
 
+  const blob = await put(`thumbnails/${filename}`, file, { access: "public" });
   return NextResponse.json({ url: blob.url });
 }
