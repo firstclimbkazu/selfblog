@@ -17,18 +17,18 @@ export default async function EditCategoryPage({ params }: Props) {
   return (
     <div className="max-w-xl mx-auto px-6 py-12">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-[#1E1610] tracking-tight mb-1">
+        <h1 className="text-2xl font-bold text-[var(--sotw-text)] tracking-tight mb-1">
           カテゴリ編集
         </h1>
-        <Link href="/admin/categories" className="text-sm text-[#6B5E52] hover:text-[#2D6B52]">
+        <Link href="/admin/categories" className="text-sm text-[var(--sotw-text-2)] hover:text-[var(--sotw-moss)]">
           ← カテゴリ一覧へ
         </Link>
       </div>
 
-      <div className="bg-white border border-[#E8E2DA] rounded-lg p-6">
+      <div className="bg-[var(--sotw-surface)] border border-[var(--sotw-border)] rounded-lg p-6">
         <form action={update} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-[#1E1610] mb-1">
+            <label className="block text-sm font-medium text-[var(--sotw-text)] mb-1">
               カテゴリ名
             </label>
             <input
@@ -36,11 +36,11 @@ export default async function EditCategoryPage({ params }: Props) {
               type="text"
               required
               defaultValue={category.name}
-              className="w-full px-3 py-2 border border-[#E8E2DA] rounded-lg text-[#1E1610] focus:outline-none focus:border-[#2D6B52]"
+              className="w-full px-3 py-2 border border-[var(--sotw-border)] rounded-lg text-[var(--sotw-text)] bg-[var(--sotw-bg)] focus:outline-none focus:border-[var(--sotw-moss)]"
             />
           </div>
           <div>
-            <p className="text-xs text-[#6B5E52]">
+            <p className="text-xs text-[var(--sotw-text-2)]">
               現在の slug: <span className="font-mono">{category.slug}</span>
               　（名前変更時は自動更新されます）
             </p>
@@ -48,13 +48,13 @@ export default async function EditCategoryPage({ params }: Props) {
           <div className="flex gap-3 pt-2">
             <button
               type="submit"
-              className="px-5 py-2 bg-[#2D6B52] text-white rounded-lg text-sm hover:bg-[#245840] transition-colors"
+              className="px-5 py-2 bg-[var(--sotw-moss)] text-white rounded-lg text-sm hover:bg-[var(--sotw-moss-hover)] transition-colors"
             >
               保存
             </button>
             <Link
               href="/admin/categories"
-              className="px-5 py-2 border border-[#E8E2DA] rounded-lg text-sm text-[#6B5E52] hover:border-[#2D6B52] transition-colors"
+              className="px-5 py-2 border border-[var(--sotw-border)] rounded-lg text-sm text-[var(--sotw-text-2)] hover:border-[var(--sotw-moss)] transition-colors"
             >
               キャンセル
             </Link>

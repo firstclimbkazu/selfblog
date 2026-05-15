@@ -27,10 +27,10 @@ export default async function EditPostPage({ params }: Props) {
   return (
     <div className="max-w-5xl mx-auto px-6 py-12">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-[#1E1610] tracking-tight mb-1">
+        <h1 className="text-2xl font-bold text-[var(--sotw-text)] tracking-tight mb-1">
           記事編集
         </h1>
-        <Link href="/admin/posts" className="text-sm text-[#6B5E52] hover:text-[#2D6B52]">
+        <Link href="/admin/posts" className="text-sm text-[var(--sotw-text-2)] hover:text-[var(--sotw-moss)]">
           ← 記事一覧へ
         </Link>
       </div>
