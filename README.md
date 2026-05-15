@@ -9,6 +9,14 @@
 [![Prisma](https://img.shields.io/badge/Prisma-7-2D3748?logo=prisma)](https://www.prisma.io)
 [![Vercel](https://img.shields.io/badge/Deploy-Vercel-000?logo=vercel)](https://vercel.com)
 
+**本番サイト: [https://firstclimb.net](https://firstclimb.net)**
+
+---
+
+## スクリーンショット
+
+[![Still On The Wall トップページ](docs/images/top-page-screenshot.png)](https://firstclimb.net)
+
 ---
 
 ## デザイン
