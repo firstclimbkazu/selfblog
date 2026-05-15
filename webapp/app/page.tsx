@@ -1,6 +1,8 @@
 import { prisma } from "@/lib/prisma";
 import ArticleCard from "./components/ArticleCard";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const articles = await prisma.article.findMany({
     where: { status: "PUBLISHED" },

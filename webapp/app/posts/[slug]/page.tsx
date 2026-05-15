@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
+
+export const dynamic = "force-dynamic";
 import remarkGfm from "remark-gfm";
 import { prisma } from "@/lib/prisma";
 
