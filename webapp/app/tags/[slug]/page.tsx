@@ -1,5 +1,7 @@
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
+
+export const dynamic = "force-dynamic";
 import ArticleCard from "@/app/components/ArticleCard";
 
 type Props = { params: Promise<{ slug: string }> };

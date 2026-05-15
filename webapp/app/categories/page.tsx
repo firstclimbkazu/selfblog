@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = { title: "カテゴリ一覧 — Still On The Wall" };
 
 export default async function CategoriesPage() {
