@@ -56,6 +56,21 @@ Playwright MCP を使って以下のカテゴリでテストを行う：
 - `'use client'` が必要最小限のコンポーネントにのみついているか
 - 50行超のコンポーネントに分割の余地がないか
 
+#### F. 型安全性・Lintチェック（Docker Node 20 で実行）
+
+```bash
+# TypeScript 型エラーゼロ確認
+docker exec blog-webapp-1 sh -c "cd /app && npx tsc --noEmit"
+
+# ESLint エラー・警告ゼロ確認
+docker exec blog-webapp-1 sh -c "cd /app && npx eslint app/ lib/ --ext .ts,.tsx"
+```
+
+- `tsc --noEmit` がエラーなしで終了すること
+- ESLint error が 0 件であること（warning は要確認・記録）
+- `any` 型の暗黙的使用がないこと（`Prisma.XxxGetPayload<...>` パターンを推奨）
+- **注意**: `npx prisma generate` は Docker コンテナ内（Node 20）で実行すること。ホストの Node 18 では Prisma v7 の generate が失敗する
+
 ### 4. 評価基準
 
 以下の基準でスコア（1〜5）を付け、閾値と比較して合否を判定する：
@@ -68,6 +83,7 @@ Playwright MCP を使って以下のカテゴリでテストを行う：
 | エラーハンドリング | 3以上 | エッジケースへの対応 |
 | 回帰なし | 5（必須） | 既存機能が壊れていないこと |
 | コード品質 | 3以上 | page.tsxがコンポーネント呼び出しのみ・適切な分割がされているか |
+| 型安全性 | 5（必須） | tsc --noEmit エラーゼロ・ESLint error ゼロ |
 
 **合否判定**: すべての基準が閾値以上であれば合格。1つでも下回れば不合格。
 
@@ -91,6 +107,7 @@ Playwright MCP を使って以下のカテゴリでテストを行う：
 | UI/UX品質 | X/5 | 3 | PASS/FAIL |
 | エラーハンドリング | X/5 | 3 | PASS/FAIL |
 | 回帰なし | X/5 | 5 | PASS/FAIL |
+| 型安全性 | X/5 | 5 | PASS/FAIL |
 
 ## テスト結果詳細
 

@@ -20,7 +20,7 @@ export async function createArticle(formData: FormData) {
     existing.map((a) => a.slug)
   );
 
-  const article = await prisma.article.create({
+  await prisma.article.create({
     data: {
       title,
       slug,

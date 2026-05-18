@@ -31,7 +31,24 @@ model: opus
 
 ### 3. 自己評価と進捗記録
 
-スプリント完了後、以下の形式で `requirements/progress.md` に記録する：
+スプリント完了後、**まず以下のチェックを実行してからエバリュエーターに引き渡す**。
+
+#### 引き渡し前チェック（Docker Node 20）
+
+```bash
+# TypeScript 型エラーゼロ確認
+docker exec blog-webapp-1 sh -c "cd /app && npx tsc --noEmit"
+
+# ESLint エラーゼロ確認
+docker exec blog-webapp-1 sh -c "cd /app && npx eslint app/ lib/ --ext .ts,.tsx"
+```
+
+- `tsc --noEmit` がエラーなしで完了すること
+- ESLint error が 0 件であること（warning も極力ゼロに）
+- どちらかが失敗した場合はその場で修正してから引き渡す
+- **注意**: `prisma generate` は Docker コンテナ内（Node 20）で実行すること。ホストの Node 18 では Prisma v7 の generate が失敗する
+
+以下の形式で `requirements/progress.md` に記録する：
 
 ```
 ## Sprint [N]: [テーマ]
@@ -50,6 +67,7 @@ model: opus
 | UI/UX | X | ユーザー体験の品質 |
 | エラーハンドリング | X | エッジケースの処理 |
 | 既存機能との統合 | X | 前スプリントの機能を壊していないか |
+| 型安全性 | X | tsc --noEmit エラーゼロ・ESLint error ゼロ |
 
 ### 技術的な判断
 - [仕様にない部分で自分が行った技術的判断]
@@ -84,6 +102,8 @@ model: opus
 - 1コンポーネントが50行超になったら分割を検討する
 - 外部ライブラリ（`react-markdown` 等）の依存は専用コンポーネントに閉じ込める
 - Prismaの型は `Prisma.XxxGetPayload<{...}>` を使い、インライン `any` 型を避ける
+- `map()` のコールバック引数など暗黙的 `any` になる箇所は明示的な型注釈を付ける
+- `useEffect` 内で `setState` を直接呼ばない（`useState` 遅延初期化または購読パターンを使う）
 
 ## 注意事項
 
