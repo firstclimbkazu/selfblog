@@ -77,6 +77,14 @@ model: opus
 - 前スプリントのフィードバックファイル（`requirements/feedback/sprint-N.md`）がある場合は、まずその指摘事項の修正から着手する
 - 修正完了後、新スプリントの実装に移る
 
+### コンポーネント分割ルール（必須）
+
+- **page.tsxはコンポーネント呼び出しのみ** — データフェッチ・`notFound`・`generateMetadata` 以外のJSXを直書きしない
+- ページのUIは同階層に `XxxView.tsx` / `XxxForm.tsx` / `XxxTable.tsx` 等を作成して委譲する
+- 1コンポーネントが50行超になったら分割を検討する
+- 外部ライブラリ（`react-markdown` 等）の依存は専用コンポーネントに閉じ込める
+- Prismaの型は `Prisma.XxxGetPayload<{...}>` を使い、インライン `any` 型を避ける
+
 ## 注意事項
 
 - **スプリントをスキップしない** - 依存関係があるため、必ず順番通りに実装する
