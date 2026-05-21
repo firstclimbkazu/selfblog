@@ -67,6 +67,31 @@ Supabase
 - article_id: uuid
 - tag_id: uuid
 
+### LandingPage（LP）
+- id: uuid
+- title: string（管理用タイトル）
+- slug: string（公開URL用、unique）
+- html: text（`<body>` 内容）
+- css: text?（LP固有スタイル）
+- js: text?（LP固有スクリプト）
+- meta_title: string?
+- meta_description: string?
+- meta_og_image: string?
+- status: enum（draft / published）
+- created_at: timestamp
+- updated_at: timestamp
+- images: LpImage[]
+
+### LpImage（LP画像）
+- id: uuid
+- lp_id: uuid → LandingPage（onDelete: Cascade）
+- public_url: string（Supabase Storage 公開URL）
+- file_name: string
+- file_size: int?（bytes）
+- created_at: timestamp
+
+> Storageパス規則: `lp/{lpId}/{uuid}.{ext}`（既存 `thumbnails/` と同バケット内で分離）
+
 ## 画面フロー
 1. ユーザーがトップページにアクセス
 2. 記事一覧を閲覧 → 記事をクリック → 詳細ページへ
