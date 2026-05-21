@@ -346,6 +346,101 @@ Vercel に本番デプロイし、stillonthewall.com でアクセスできる状
 
 ---
 
+---
+
+### Sprint 11: LP（ランディングページ）管理機能
+
+> 関連 Issue: [#1 LP管理画面を作りたい](https://github.com/firstclimbkazu/selfblog/issues/1)
+
+**ゴール:**
+Web制作のポートフォリオとして使える LP を、管理画面から HTML / CSS / JS で作成・編集・公開できるようにする。
+
+---
+
+#### データモデル
+
+**LandingPage テーブル** (`landing_pages`)
+
+| フィールド | 型 | 説明 |
+|---|---|---|
+| id | uuid (PK) | 自動生成 |
+| title | string | 管理用タイトル |
+| slug | string (unique) | 公開URL用スラッグ |
+| html | text | LP 本体の HTML（`<body>` 内容） |
+| css | text? | LP 固有のスタイル |
+| js | text? | LP 固有のスクリプト |
+| meta_title | string? | `<title>` タグ |
+| meta_description | string? | `<meta name="description">` |
+| meta_og_image | string? | OGP 画像 URL |
+| status | enum (DRAFT / PUBLISHED) | 公開状態 |
+| created_at | timestamp | 作成日時 |
+| updated_at | timestamp | 更新日時 |
+
+> **技術判断: DB 保存を採用**  
+> LP コンテンツ（HTML/CSS/JS）は Supabase PostgreSQL の `text` 型に保存する。  
+> 理由: 編集フローとの一貫性・サイズ（数十KB以内）で十分・ファイル管理不要。  
+> Supabase Storage（Blob）は画像など静的アセットに限定する。
+
+---
+
+#### 画面仕様
+
+##### A. LP 一覧 `/admin/lps`
+
+| 要素 | 仕様 |
+|---|---|
+| 表示内容 | タイトル・スラッグ・ステータス（公開/下書き）・更新日・操作ボタン |
+| 操作 | 新規作成・編集・プレビュー・削除 |
+| ステータス表示 | 公開: Moss Green バッジ / 下書き: グレーバッジ |
+
+##### B. LP 新規作成 `/admin/lps/new`
+
+##### C. LP 編集 `/admin/lps/[id]/edit`
+
+| 要素 | 仕様 |
+|---|---|
+| タイトル入力 | テキストフィールド（管理用） |
+| スラッグ入力 | テキストフィールド（URL用、英数字ハイフン） |
+| コードエディタ | HTML / CSS / JS タブ切り替え、`<textarea>` + モノスペースフォント |
+| meta 情報 | title / description / OG画像URL の入力欄（折りたたみ可） |
+| ステータス切り替え | 「公開」「下書き」トグル |
+| アクション | 「保存」「プレビュー」（別タブで `/lp/[slug]` を開く） |
+
+##### D. LP 公開表示 `/lp/[slug]`
+
+| 要素 | 仕様 |
+|---|---|
+| レンダリング | Next.js で完全な HTML ページとして出力（ブログのレイアウト外） |
+| `<head>` | meta_title / meta_description / meta_og_image を注入 |
+| `<style>` | css フィールドの内容を注入 |
+| `<script>` | js フィールドの内容を `defer` で注入 |
+| 非公開時 | status = DRAFT の場合は 404 を返す |
+
+---
+
+#### 受け入れ基準
+
+- [ ] `/admin/lps` でLP一覧が表示できる
+- [ ] LP を新規作成できる（title / slug / html 必須）
+- [ ] HTML / CSS / JS を個別に編集して保存できる
+- [ ] meta_title / meta_description / meta_og_image を設定できる
+- [ ] 公開 / 下書き を切り替えられる
+- [ ] `/lp/[slug]` で公開中の LP が表示される
+- [ ] 下書き状態の LP は `/lp/[slug]` で 404 になる
+- [ ] LP 削除ができる
+- [ ] ブログの既存機能（記事・カテゴリ・タグ）に回帰がない
+
+---
+
+#### スコープ外（本スプリント）
+
+- LP のバージョン管理・履歴
+- 外部ドメインでの LP 公開
+- テンプレート機能
+- フォーム埋め込み
+
+---
+
 ## スコープ外
 
 以下の機能は本仕様書のスコープ外とし、将来の拡張フェーズで検討する。
