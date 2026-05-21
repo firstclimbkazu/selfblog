@@ -1,0 +1,48 @@
+name: 🔧 技術的改善 / Chore
+description: リファクタリング・依存関係更新・技術的負債の解消
+labels: ["chore"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        技術的負債の解消や保守作業を記録します。
+
+  - type: textarea
+    id: what
+    attributes:
+      label: やること
+      description: 具体的に何を変更するか
+      placeholder: Prisma を v7.x にアップグレードする
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: なぜやるか（インパクト）
+      description: 放置するとどうなるか、やると何が改善するか
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 受け入れ基準
+      value: |
+        - [ ]
+        - [ ]
+        - [ ] `tsc --noEmit` エラーゼロ
+        - [ ] ESLint エラーゼロ
+        - [ ] e2e テスト全パス
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: 事前確認
+      options:
+        - label: 既存の issue と重複していない
+          required: true
+        - label: スコープ外の変更を含まない
+          required: true

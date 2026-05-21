@@ -1,0 +1,81 @@
+name: 🐛 バグ報告
+description: 予期しない動作やエラーを報告する
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        バグ報告ありがとうございます。詳しく書いてもらえると早く直せます。
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: 概要
+      description: 何が起きているか一言で
+      placeholder: 記事詳細ページでサムネイルが表示されない
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 再現手順
+      description: この手順で再現できます
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期待する動作
+      placeholder: サムネイル画像が表示される
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: 実際の動作
+      placeholder: 画像エリアが空白 / コンソールにエラーが出る
+    validations:
+      required: true
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: ブラウザ
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - その他
+
+  - type: input
+    id: os
+    attributes:
+      label: OS
+      placeholder: "macOS 15.x / iOS 18.x / Windows 11"
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: エラーログ / スクリーンショット
+      description: コンソールエラーや画面キャプチャがあれば貼ってください
+      render: shell
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: 優先度
+      options:
+        - 🔴 Critical — 本番が壊れている
+        - 🟠 High — 主要機能に影響
+        - 🟡 Medium — 一部機能に影響
+        - 🟢 Low — 軽微
+    validations:
+      required: true

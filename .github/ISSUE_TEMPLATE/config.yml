@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 本番サイト
+    url: https://firstclimb.net
+    about: 動作確認は本番サイトで
