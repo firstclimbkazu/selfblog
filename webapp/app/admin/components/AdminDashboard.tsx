@@ -62,6 +62,12 @@ export default function AdminDashboard({ email, publishedCount, draftCount }: Pr
         >
           タグを管理する
         </Link>
+        <Link
+          href="/admin/lps"
+          className="px-6 py-3 border border-[var(--sotw-border)] rounded-lg text-sm text-[var(--sotw-text-2)] hover:border-[var(--sotw-moss)] hover:text-[var(--sotw-moss)] transition-colors"
+        >
+          LPを管理する
+        </Link>
       </div>
     </div>
   );
