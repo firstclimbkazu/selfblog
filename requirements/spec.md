@@ -385,8 +385,9 @@ Web制作のポートフォリオとして使える LP を、管理画面から 
 | title | string | 管理用タイトル |
 | slug | string (unique) | 公開URL用スラッグ |
 | html | text | LP 本体の HTML（`<body>` 内容） |
-| css | text? | LP 固有のスタイル |
-| js | text? | LP 固有のスクリプト |
+| css | text? | LP 固有のインラインスタイル（`<style>` に注入） |
+| js | text? | LP 固有のインラインスクリプト（`<script defer>` に注入） |
+| head_html | text? | `<head>` 内に追加するタグ（外部ライブラリ読み込み用） |
 | meta_title | string? | `<title>` タグ |
 | meta_description | string? | `<meta name="description">` |
 | meta_og_image | string? | OGP 画像 URL |
@@ -421,8 +422,9 @@ Web制作のポートフォリオとして使える LP を、管理画面から 
 
 | 要素 | 仕様 |
 |---|---|
-| タブ切り替え | HTML / CSS / JS |
+| タブ切り替え | HTML / CSS / JS / `<head>` |
 | エディタ | `<textarea>` + モノスペースフォント、行番号風スタイル |
+| `<head>` タブ | Bootstrap CDN・Google Fonts・GSAP など外部ライブラリの `<link>` / `<script src>` を記述する欄。プレースホルダーで使い方を案内する |
 
 **右カラム（設定・画像パネル）タブ切り替え `[設定] [📷 画像]`:**
 
@@ -456,9 +458,9 @@ Web制作のポートフォリオとして使える LP を、管理画面から 
 | 要素 | 仕様 |
 |---|---|
 | レンダリング | Next.js で完全な HTML ページとして出力（ブログのレイアウト外） |
-| `<head>` | meta_title / meta_description / meta_og_image を注入 |
-| `<style>` | css フィールドの内容を注入 |
-| `<script>` | js フィールドの内容を `defer` で注入 |
+| `<head>` | meta_title / meta_description / meta_og_image を注入し、続けて `head_html` フィールドの内容を注入 |
+| `<style>` | css フィールドの内容をインラインで注入 |
+| `<script>` | js フィールドの内容を `defer` でインライン注入 |
 | 非公開時 | status = DRAFT の場合は 404 を返す |
 
 ---
@@ -467,7 +469,8 @@ Web制作のポートフォリオとして使える LP を、管理画面から 
 
 - [ ] `/admin/lps` でLP一覧が表示できる
 - [ ] LP を新規作成できる（title / slug / html 必須）
-- [ ] HTML / CSS / JS を個別に編集して保存できる
+- [ ] HTML / CSS / JS / `<head>` を個別に編集して保存できる
+- [ ] `<head>` タブに外部ライブラリの `<link>` / `<script src>` を記述でき、LP表示に反映される
 - [ ] meta_title / meta_description / meta_og_image を設定できる
 - [ ] 公開 / 下書き を切り替えられる
 - [ ] `/lp/[slug]` で公開中の LP が表示される

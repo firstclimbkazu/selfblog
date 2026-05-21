@@ -72,8 +72,9 @@ Supabase
 - title: string（管理用タイトル）
 - slug: string（公開URL用、unique）
 - html: text（`<body>` 内容）
-- css: text?（LP固有スタイル）
-- js: text?（LP固有スクリプト）
+- css: text?（LP固有インラインスタイル）
+- js: text?（LP固有インラインスクリプト）
+- head_html: text?（外部ライブラリ読み込み用 `<link>` / `<script src>` など）
 - meta_title: string?
 - meta_description: string?
 - meta_og_image: string?
