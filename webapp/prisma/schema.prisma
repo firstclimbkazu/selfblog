@@ -57,3 +57,39 @@ enum ArticleStatus {
   DRAFT
   PUBLISHED
 }
+
+model LandingPage {
+  id              String    @id @default(uuid())
+  title           String
+  slug            String    @unique
+  html            String
+  css             String?
+  js              String?
+  headHtml        String?   @map("head_html")
+  metaTitle       String?   @map("meta_title")
+  metaDescription String?   @map("meta_description")
+  metaOgImage     String?   @map("meta_og_image")
+  status          LpStatus  @default(DRAFT)
+  createdAt       DateTime  @default(now()) @map("created_at")
+  updatedAt       DateTime  @updatedAt @map("updated_at")
+  images          LpImage[]
+
+  @@map("landing_pages")
+}
+
+model LpImage {
+  id          String      @id @default(uuid())
+  landingPage LandingPage @relation(fields: [lpId], references: [id], onDelete: Cascade)
+  lpId        String      @map("lp_id")
+  publicUrl   String      @map("public_url")
+  fileName    String      @map("file_name")
+  fileSize    Int?        @map("file_size")
+  createdAt   DateTime    @default(now()) @map("created_at")
+
+  @@map("lp_images")
+}
+
+enum LpStatus {
+  DRAFT
+  PUBLISHED
+}
