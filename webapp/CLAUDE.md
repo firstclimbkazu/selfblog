@@ -20,3 +20,29 @@
 
 ### Prismaの型
 - `Prisma.XxxGetPayload<{ include: {...} }>` を使い、インラインany型を避ける
+
+## 本番サイト更新フロー
+
+### コンテンツ（記事・LP）をSQL経由で本番DBに投入する手順
+
+1. **ローカルDockerDBからSQL生成**
+   ```bash
+   docker exec blog-db-1 bash -c 'psql -U postgres -d sotw_dev -tA -c "SELECT ..." > /tmp/output.sql'
+   docker cp blog-db-1:/tmp/output.sql /tmp/output.sql
+   ```
+
+2. **Supabase SQL Editor に貼り付けてRUN**
+   - supabase.com → プロジェクト → SQL Editor
+
+3. **キャッシュ更新**
+   - SQLで直接INSERTするとNext.jsキャッシュが更新されない
+   - 本番の管理画面で対象レコードを開き「保存」を押してrevalidatePathを発火させる
+   - 直接URLでアクセス可能: `/admin/lps/{id}/edit` や `/admin/posts/{id}/edit`
+
+4. **画像がある場合**
+   - 管理画面の画像タブからアップロード → Vercel Blob URLを取得
+   - SQL EDITORでCSS/HTML内のローカルパスを`REPLACE()`で本番URLに更新
+
+### SQLを生成する際の注意
+- 記事・LPのstatusは必ず `'DRAFT'` で生成する（誤って本番公開しないため）
+- 公開する場合は管理画面から手動でステータス変更する
