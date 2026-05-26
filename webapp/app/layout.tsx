@@ -31,6 +31,7 @@ export default function RootLayout({
     >
       <head>
         {/* Google Tag Manager — placed in <head> for earliest possible firing */}
+        {/* eslint-disable-next-line @next/next/next-script-for-ga */}
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
