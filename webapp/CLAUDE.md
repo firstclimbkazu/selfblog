@@ -1,5 +1,11 @@
 @AGENTS.md
 
+## Git・デプロイルール
+
+- `.gitignore` に含まれないファイルを変更する場合は、**必ずPRを作成してmainにマージ**する
+- mainへの直接コミット・プッシュは禁止
+- PRのチェックリスト: TypeScriptエラーなし・ESLintエラーなし・e2eテスト全パス
+
 ## Reactコンポーネント設計方針
 
 ### page.tsxの役割
