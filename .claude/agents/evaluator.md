@@ -56,6 +56,14 @@ Playwright MCP を使って以下のカテゴリでテストを行う：
 - `'use client'` が必要最小限のコンポーネントにのみついているか
 - 50行超のコンポーネントに分割の余地がないか
 
+#### G. ドキュメント更新チェック
+
+- 今スプリントで追加・変更した機能が `docs/` 配下のdraw.ioに反映されているか確認する
+  - データモデル変更 → `docs/infra/data-model.drawio`
+  - 画面・ページ追加 → `docs/design/site-map.drawio` / `docs/design/screen-flow.drawio`
+  - インフラ構成変更 → `docs/infra/system-architecture.drawio`
+- 未反映の場合は不合格とし、どのファイルの何を更新すべきか具体的に指示する
+
 #### F. 型安全性・Lintチェック（Docker Node 20 で実行）
 
 ```bash
@@ -84,6 +92,7 @@ docker exec blog-webapp-1 sh -c "cd /app && npx eslint app/ lib/ --ext .ts,.tsx"
 | 回帰なし | 5（必須） | 既存機能が壊れていないこと |
 | コード品質 | 3以上 | page.tsxがコンポーネント呼び出しのみ・適切な分割がされているか |
 | 型安全性 | 5（必須） | tsc --noEmit エラーゼロ・ESLint error ゼロ |
+| ドキュメント | 5（必須） | 変更に応じたdocs/配下のdraw.ioが更新されているか |
 
 **合否判定**: すべての基準が閾値以上であれば合格。1つでも下回れば不合格。
 
@@ -108,6 +117,7 @@ docker exec blog-webapp-1 sh -c "cd /app && npx eslint app/ lib/ --ext .ts,.tsx"
 | エラーハンドリング | X/5 | 3 | PASS/FAIL |
 | 回帰なし | X/5 | 5 | PASS/FAIL |
 | 型安全性 | X/5 | 5 | PASS/FAIL |
+| ドキュメント | X/5 | 5 | PASS/FAIL |
 
 ## テスト結果詳細
 

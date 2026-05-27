@@ -177,6 +177,91 @@
           </mxGeometry>
         </mxCell>
 
+        <!-- ===== LP管理フロー（Sprint 11追加） ===== -->
+        <mxCell id="lp_section_label" value="LP管理フロー（管理者）" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="980" y="80" width="220" height="20" as="geometry"/>
+        </mxCell>
+
+        <!-- LP一覧 -->
+        <mxCell id="lp_list" value="LP一覧&#xa;/admin/lps" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="980" y="110" width="150" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- 新規作成 -->
+        <mxCell id="lp_new" value="LP新規作成&#xa;/admin/lps/new" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="980" y="200" width="150" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- 編集画面 -->
+        <mxCell id="lp_edit" value="LP編集画面&#xa;/admin/lps/[id]/edit" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="980" y="300" width="150" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- 設定タブ -->
+        <mxCell id="lp_settings" value="設定タブ&#xa;HTML/CSS/JS編集 → 保存" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="860" y="400" width="160" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- 画像タブ -->
+        <mxCell id="lp_images" value="画像タブ&#xa;アップロード → URL取得" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="400" width="160" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- 公開判断 -->
+        <mxCell id="lp_publish_dec" value="ステータス変更？" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="965" y="490" width="180" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- LP公開ページ -->
+        <mxCell id="lp_pub" value="LP公開ページ&#xa;/lp/[slug]&#xa;（認証不要・独立layout）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="980" y="600" width="150" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- エッジ: LP一覧 → 新規作成 -->
+        <mxCell id="e_lp_new" value="新規作成" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;" edge="1" source="lp_list" target="lp_new" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- エッジ: LP一覧 → 編集 -->
+        <mxCell id="e_lp_edit" value="既存を選択" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;dashed=1;" edge="1" source="lp_list" target="lp_edit" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1140" y="135"/>
+              <mxPoint x="1140" y="325"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <!-- エッジ: 新規作成 → 編集 -->
+        <mxCell id="e_lp_new_edit" value="保存後" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;" edge="1" source="lp_new" target="lp_edit" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- エッジ: 編集 → 設定タブ -->
+        <mxCell id="e_lp_settings" value="設定タブ" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;" edge="1" source="lp_edit" target="lp_settings" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- エッジ: 編集 → 画像タブ -->
+        <mxCell id="e_lp_img" value="画像タブ" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;" edge="1" source="lp_edit" target="lp_images" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- エッジ: 設定タブ → 公開判断 -->
+        <mxCell id="e_lp_pub_dec" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="lp_settings" target="lp_publish_dec" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- エッジ: 公開判断 → LP公開ページ -->
+        <mxCell id="e_lp_pub" value="PUBLISHED" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;" edge="1" source="lp_publish_dec" target="lp_pub" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- エッジ: 公開判断 → 編集（DRAFT継続） -->
+        <mxCell id="e_lp_draft" value="DRAFT継続" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;" edge="1" source="lp_publish_dec" target="lp_edit" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="965" y="520"/>
+              <mxPoint x="900" y="520"/>
+              <mxPoint x="900" y="325"/>
+              <mxPoint x="980" y="325"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
       </root>
     </mxGraphModel>
   </diagram>
