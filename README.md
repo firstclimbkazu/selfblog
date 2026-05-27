@@ -29,6 +29,7 @@
 |---|---|
 | Figma ワイヤーフレーム | [figma.com/design/x7QVkhxdw4CR4fRZbjMRYB](https://www.figma.com/design/x7QVkhxdw4CR4fRZbjMRYB) |
 | Figma デザインシステム | [figma.com/design/LIFRo8BgG1gYN3xyVkYjbm](https://www.figma.com/design/LIFRo8BgG1gYN3xyVkYjbm) |
+| Figma LP管理画面 | [figma.com/design/LIFRo8BgG1gYN3xyVkYjbm?node-id=107-34](https://www.figma.com/design/LIFRo8BgG1gYN3xyVkYjbm?node-id=107-34) |
 
 デザインカラーコンセプト: **Warm Stone × Moss Green × Warm Amber**。Light / Dark モード両対応。
 
