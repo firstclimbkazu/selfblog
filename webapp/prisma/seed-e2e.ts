@@ -11,6 +11,8 @@ async function main() {
   await prisma.article.deleteMany();
   await prisma.tag.deleteMany();
   await prisma.category.deleteMany();
+  await prisma.lpImage.deleteMany();
+  await prisma.landingPage.deleteMany();
 
   const climbing = await prisma.category.create({
     data: { name: "クライミング", slug: "climbing" },
@@ -178,7 +180,32 @@ async function main() {
     }
   }
 
-  console.log("E2E seed complete: 4 categories, 5 articles (1 draft), 5 tags");
+  await prisma.landingPage.createMany({
+    data: [
+      {
+        slug: "test-lp",
+        title: "テストLP",
+        metaTitle: "テストLP | E2E",
+        metaDescription: "e2eテスト用のLP",
+        html: `<section class="hero">
+  <h1>テストLPタイトル</h1>
+  <p>このLPはe2eテスト用です。</p>
+  <a href="https://example.com/signup" class="btn-primary">今すぐ登録する</a>
+  <button type="button" class="btn-secondary">詳しく見る</button>
+</section>`,
+        css: ".hero { padding: 40px; }",
+        status: "PUBLISHED",
+      },
+      {
+        slug: "test-lp-draft",
+        title: "下書きLP",
+        html: "<h1>下書き</h1>",
+        status: "DRAFT",
+      },
+    ],
+  });
+
+  console.log("E2E seed complete: 4 categories, 5 articles (1 draft), 5 tags, 2 LPs (1 draft)");
 }
 
 main()
