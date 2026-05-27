@@ -19,6 +19,7 @@ export async function GET(
   }
 
   const html = renderLandingPage({
+    slug: lp.slug,
     title: lp.metaTitle ?? lp.title,
     description: lp.metaDescription,
     ogImage: lp.metaOgImage,

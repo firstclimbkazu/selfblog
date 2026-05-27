@@ -2,6 +2,7 @@ import { renderLandingPage } from "@/app/lp/[slug]/render";
 
 describe("renderLandingPage", () => {
   const baseInput = {
+    slug: "demo-lp",
     title: "Demo LP",
     description: null,
     ogImage: null,

@@ -1,4 +1,7 @@
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID ?? "GTM-MTT7QG3S";
+
 type RenderInput = {
+  slug: string;
   title: string;
   description: string | null;
   ogImage: string | null;
@@ -34,6 +37,12 @@ export function renderLandingPage(input: RenderInput): string {
     '<meta name="viewport" content="width=device-width, initial-scale=1.0">'
   );
   parts.push(`<title>${escapeText(input.title)}</title>`);
+  // GTM
+  parts.push(`<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${escapeAttr(GTM_ID)}');</script>`);
 
   if (input.description) {
     parts.push(
@@ -63,11 +72,30 @@ export function renderLandingPage(input: RenderInput): string {
 
   parts.push("</head>");
   parts.push("<body>");
+  parts.push(`<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${escapeAttr(GTM_ID)}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`);
   parts.push(input.body);
 
   if (input.js) {
     parts.push(`<script defer>${input.js}</script>`);
   }
+
+  // CTA クリックトラッキング
+  parts.push(`<script>
+(function(){
+  var slug=${JSON.stringify(input.slug)};
+  document.addEventListener('click',function(e){
+    var el=e.target.closest('a[href],button,[data-cta]');
+    if(!el)return;
+    window.dataLayer=window.dataLayer||[];
+    window.dataLayer.push({
+      event:'lp_cta_click',
+      lp_slug:slug,
+      element_text:(el.innerText||el.textContent||'').trim().slice(0,100),
+      element_url:el.href||''
+    });
+  });
+})();
+</script>`);
 
   parts.push("</body>");
   parts.push("</html>");
