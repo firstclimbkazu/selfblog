@@ -68,17 +68,17 @@
 
         <!-- Sprint 11 ラベル -->
         <mxCell id="sprint11_label" value="Sprint 11 追加（LP管理機能）" style="text;html=1;strokeColor=#0066cc;fillColor=#e0f0ff;align=center;fontSize=11;fontStyle=1;rounded=1;" vertex="1" parent="1">
-          <mxGeometry x="280" y="458" width="440" height="22" as="geometry"/>
+          <mxGeometry x="280" y="558" width="440" height="22" as="geometry"/>
         </mxCell>
 
         <!-- /api/upload/lp -->
         <mxCell id="api_lp" value="/api/upload/lp&#xa;（LP画像アップロード）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#cce5ff;strokeColor=#0066cc;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="280" y="490" width="180" height="60" as="geometry"/>
+          <mxGeometry x="280" y="588" width="180" height="60" as="geometry"/>
         </mxCell>
 
         <!-- Vercel Blob Storage（LP画像用） -->
         <mxCell id="blob_lp" value="Vercel Blob Storage&#xa;（LP画像用）&#xa;/lp/{lpId}/{uuid}.ext" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e0f0ff;strokeColor=#0066cc;fontSize=12;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="540" y="490" width="180" height="70" as="geometry"/>
+          <mxGeometry x="540" y="588" width="180" height="70" as="geometry"/>
         </mxCell>
 
         <!-- エッジ: Next.js → /api/upload/lp -->

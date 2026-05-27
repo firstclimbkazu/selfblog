@@ -33,12 +33,12 @@
 
         <!-- カテゴリをクリック -->
         <mxCell id="cat_list" value="カテゴリ一覧ページ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="200" y="420" width="150" height="55" as="geometry"/>
+          <mxGeometry x="200" y="460" width="150" height="55" as="geometry"/>
         </mxCell>
 
         <!-- タグをクリック -->
         <mxCell id="tag_list" value="タグ一覧ページ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="480" y="420" width="150" height="55" as="geometry"/>
+          <mxGeometry x="480" y="460" width="150" height="55" as="geometry"/>
         </mxCell>
 
         <!-- ナビ: プロフィール -->
@@ -48,27 +48,27 @@
 
         <!-- ナビ: お問い合わせ -->
         <mxCell id="contact" value="お問い合わせページ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="760" y="420" width="150" height="55" as="geometry"/>
+          <mxGeometry x="760" y="460" width="150" height="55" as="geometry"/>
         </mxCell>
 
         <!-- カテゴリ別記事一覧 -->
         <mxCell id="cat_detail" value="カテゴリ別記事一覧" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="200" y="540" width="150" height="55" as="geometry"/>
+          <mxGeometry x="200" y="580" width="150" height="55" as="geometry"/>
         </mxCell>
 
         <!-- タグ別記事一覧 -->
         <mxCell id="tag_detail" value="タグ別記事一覧" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="480" y="540" width="150" height="55" as="geometry"/>
+          <mxGeometry x="480" y="580" width="150" height="55" as="geometry"/>
         </mxCell>
 
         <!-- 記事詳細の判断 -->
         <mxCell id="post_action" value="次のアクション？" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="160" y="370" width="220" height="60" as="geometry"/>
+          <mxGeometry x="160" y="340" width="220" height="60" as="geometry"/>
         </mxCell>
 
         <!-- 終了（閲覧完了） -->
         <mxCell id="end1" value="終了" style="ellipse;whiteSpace=wrap;html=1;fillColor=#000000;fontColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="60" y="390" width="60" height="40" as="geometry"/>
+          <mxGeometry x="60" y="360" width="60" height="40" as="geometry"/>
         </mxCell>
 
         <!-- ===== エッジ ===== -->
@@ -94,7 +94,7 @@
             <Array as="points">
               <mxPoint x="560" y="335"/>
               <mxPoint x="275" y="335"/>
-              <mxPoint x="275" y="420"/>
+              <mxPoint x="275" y="460"/>
             </Array>
           </mxGeometry>
         </mxCell>
@@ -104,7 +104,7 @@
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="560" y="335"/>
-              <mxPoint x="560" y="420"/>
+              <mxPoint x="560" y="460"/>
             </Array>
           </mxGeometry>
         </mxCell>
@@ -119,8 +119,8 @@
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="665" y="300"/>
-              <mxPoint x="760" y="300"/>
-              <mxPoint x="760" y="447"/>
+              <mxPoint x="835" y="300"/>
+              <mxPoint x="835" y="487"/>
             </Array>
           </mxGeometry>
         </mxCell>
@@ -159,8 +159,8 @@
         <mxCell id="e_cat_post" value="記事クリック" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;" edge="1" source="cat_detail" target="post_detail" parent="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="275" y="660"/>
-              <mxPoint x="270" y="660"/>
+              <mxPoint x="275" y="700"/>
+              <mxPoint x="270" y="700"/>
               <mxPoint x="270" y="292"/>
             </Array>
           </mxGeometry>
@@ -170,8 +170,8 @@
         <mxCell id="e_tag_post" value="記事クリック" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;" edge="1" source="tag_detail" target="post_detail" parent="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="555" y="660"/>
-              <mxPoint x="270" y="660"/>
+              <mxPoint x="555" y="700"/>
+              <mxPoint x="270" y="700"/>
               <mxPoint x="270" y="292"/>
             </Array>
           </mxGeometry>
@@ -199,22 +199,22 @@
 
         <!-- 設定タブ -->
         <mxCell id="lp_settings" value="設定タブ&#xa;HTML/CSS/JS編集 → 保存" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="860" y="400" width="160" height="50" as="geometry"/>
+          <mxGeometry x="960" y="400" width="160" height="50" as="geometry"/>
         </mxCell>
 
         <!-- 画像タブ -->
         <mxCell id="lp_images" value="画像タブ&#xa;アップロード → URL取得" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="1060" y="400" width="160" height="50" as="geometry"/>
+          <mxGeometry x="1160" y="400" width="160" height="50" as="geometry"/>
         </mxCell>
 
         <!-- 公開判断 -->
         <mxCell id="lp_publish_dec" value="ステータス変更？" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="965" y="490" width="180" height="60" as="geometry"/>
+          <mxGeometry x="1060" y="490" width="180" height="60" as="geometry"/>
         </mxCell>
 
         <!-- LP公開ページ -->
         <mxCell id="lp_pub" value="LP公開ページ&#xa;/lp/[slug]&#xa;（認証不要・独立layout）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="980" y="600" width="150" height="60" as="geometry"/>
+          <mxGeometry x="1075" y="600" width="150" height="60" as="geometry"/>
         </mxCell>
 
         <!-- エッジ: LP一覧 → 新規作成 -->
@@ -225,8 +225,8 @@
         <mxCell id="e_lp_edit" value="既存を選択" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;dashed=1;" edge="1" source="lp_list" target="lp_edit" parent="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="1140" y="135"/>
-              <mxPoint x="1140" y="325"/>
+              <mxPoint x="1160" y="135"/>
+              <mxPoint x="1160" y="325"/>
             </Array>
           </mxGeometry>
         </mxCell>
@@ -254,9 +254,9 @@
         <mxCell id="e_lp_draft" value="DRAFT継続" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;" edge="1" source="lp_publish_dec" target="lp_edit" parent="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="965" y="520"/>
-              <mxPoint x="900" y="520"/>
-              <mxPoint x="900" y="325"/>
+              <mxPoint x="1060" y="520"/>
+              <mxPoint x="940" y="520"/>
+              <mxPoint x="940" y="325"/>
               <mxPoint x="980" y="325"/>
             </Array>
           </mxGeometry>
