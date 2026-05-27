@@ -137,6 +137,114 @@
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
 
+        <!-- ===== Sprint 11 追加: LandingPage / LpImage ===== -->
+
+        <!-- LandingPage テーブル -->
+        <mxCell id="lp_header" value="LandingPage（LP）" style="shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;fillColor=#e0f0ff;strokeColor=#0066cc;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="360" y="620" width="240" height="286" as="geometry"/>
+        </mxCell>
+        <mxCell id="lp_r1" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;" vertex="1" parent="lp_header">
+          <mxGeometry y="30" width="240" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="lp_r1_pk" value="PK" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;fontStyle=1;overflow=hidden;fontSize=11;" vertex="1" parent="lp_r1">
+          <mxGeometry width="40" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="lp_r1_v" value="id: string" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;fontSize=12;" vertex="1" parent="lp_r1">
+          <mxGeometry x="40" width="200" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="lp_r2" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;" vertex="1" parent="lp_header">
+          <mxGeometry y="62" width="240" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="lp_r2_v" value="title / slug: string" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;fontSize=12;" vertex="1" parent="lp_r2">
+          <mxGeometry x="40" width="200" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="lp_r3" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;" vertex="1" parent="lp_header">
+          <mxGeometry y="94" width="240" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="lp_r3_v" value="html / css / js: string" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;fontSize=12;" vertex="1" parent="lp_r3">
+          <mxGeometry x="40" width="200" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="lp_r4" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;" vertex="1" parent="lp_header">
+          <mxGeometry y="126" width="240" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="lp_r4_v" value="headHtml: string?" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;fontSize=12;" vertex="1" parent="lp_r4">
+          <mxGeometry x="40" width="200" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="lp_r5" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;" vertex="1" parent="lp_header">
+          <mxGeometry y="158" width="240" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="lp_r5_v" value="metaTitle / metaDescription / metaOgImage: string?" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;fontSize=11;" vertex="1" parent="lp_r5">
+          <mxGeometry x="40" width="200" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="lp_r6" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;" vertex="1" parent="lp_header">
+          <mxGeometry y="190" width="240" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="lp_r6_v" value="status: LpStatus (DRAFT/PUBLISHED)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;fontSize=11;" vertex="1" parent="lp_r6">
+          <mxGeometry x="40" width="200" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="lp_r7" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;" vertex="1" parent="lp_header">
+          <mxGeometry y="222" width="240" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="lp_r7_v" value="createdAt / updatedAt: datetime" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;fontSize=12;" vertex="1" parent="lp_r7">
+          <mxGeometry x="40" width="200" height="32" as="geometry"/>
+        </mxCell>
+
+        <!-- LpImage テーブル -->
+        <mxCell id="lpi_header" value="LpImage（LP画像）" style="shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;fillColor=#cce5ff;strokeColor=#0066cc;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="700" y="660" width="240" height="190" as="geometry"/>
+        </mxCell>
+        <mxCell id="lpi_r1" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;" vertex="1" parent="lpi_header">
+          <mxGeometry y="30" width="240" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="lpi_r1_pk" value="PK" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;fontStyle=1;overflow=hidden;fontSize=11;" vertex="1" parent="lpi_r1">
+          <mxGeometry width="40" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="lpi_r1_v" value="id: string" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;fontSize=12;" vertex="1" parent="lpi_r1">
+          <mxGeometry x="40" width="200" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="lpi_r2" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;" vertex="1" parent="lpi_header">
+          <mxGeometry y="62" width="240" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="lpi_r2_fk" value="FK" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;fontStyle=2;overflow=hidden;fontSize=11;" vertex="1" parent="lpi_r2">
+          <mxGeometry width="40" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="lpi_r2_v" value="lpId: string" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;fontSize=12;" vertex="1" parent="lpi_r2">
+          <mxGeometry x="40" width="200" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="lpi_r3" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;" vertex="1" parent="lpi_header">
+          <mxGeometry y="94" width="240" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="lpi_r3_v" value="publicUrl: string" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;fontSize=12;" vertex="1" parent="lpi_r3">
+          <mxGeometry x="40" width="200" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="lpi_r4" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;" vertex="1" parent="lpi_header">
+          <mxGeometry y="126" width="240" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="lpi_r4_v" value="fileName: string / fileSize: int?" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;fontSize=11;" vertex="1" parent="lpi_r4">
+          <mxGeometry x="40" width="200" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="lpi_r5" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;" vertex="1" parent="lpi_header">
+          <mxGeometry y="158" width="240" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="lpi_r5_v" value="createdAt: datetime" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;fontSize=12;" vertex="1" parent="lpi_r5">
+          <mxGeometry x="40" width="200" height="32" as="geometry"/>
+        </mxCell>
+
+        <!-- LpStatus enum -->
+        <mxCell id="lp_enum" value="&lt;b&gt;LpStatus（enum）&lt;/b&gt;&lt;br&gt;DRAFT&lt;br&gt;PUBLISHED" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#d6b656;fontSize=12;align=center;" vertex="1" parent="1">
+          <mxGeometry x="80" y="680" width="200" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- リレーション: LandingPage → LpImage (1対多) -->
+        <mxCell id="rel4" value="" style="edgeStyle=entityRelationEdgeStyle;endArrow=ERzeroToMany;startArrow=ERmandOne;html=1;fontSize=12;" edge="1" source="lp_header" target="lpi_header" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Sprint 11 ラベル -->
+        <mxCell id="sprint11_label" value="Sprint 11 追加（LP管理機能）" style="text;html=1;strokeColor=#0066cc;fillColor=#e0f0ff;align=center;fontSize=11;fontStyle=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="590" width="860" height="22" as="geometry"/>
+        </mxCell>
+
         <!-- タイトル -->
         <mxCell id="title" value="ブログサイト データモデル図（ER図）" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;" vertex="1" parent="1">
           <mxGeometry x="240" y="60" width="480" height="40" as="geometry"/>

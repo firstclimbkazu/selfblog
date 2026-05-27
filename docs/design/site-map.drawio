@@ -96,9 +96,49 @@
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
 
+        <!-- ===== LP管理セクション（Sprint 11追加） ===== -->
+        <mxCell id="lp_section" value="LP管理（管理者のみ）" style="rounded=1;fillColor=#fff9e6;strokeColor=#d6b656;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="980" y="100" width="170" height="230" as="geometry"/>
+        </mxCell>
+        <mxCell id="lp_list" value="LP一覧&#xa;/admin/lps" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="995" y="130" width="140" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="lp_new" value="LP新規作成&#xa;/admin/lps/new" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="995" y="200" width="140" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="lp_edit" value="LP編集&#xa;/admin/lps/[id]/edit&#xa;（設定タブ / 画像タブ）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="995" y="270" width="140" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- LP公開ページ（独立layout） -->
+        <mxCell id="lp_pub" value="LP公開ページ&#xa;/lp/[slug]&#xa;（独立layout・GTM含む）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="995" y="370" width="140" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- エッジ: ルート → LP一覧 -->
+        <mxCell id="e_root_lp" value="管理者" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;dashed=1;" edge="1" source="root" target="lp_list" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- エッジ: LP一覧 → 新規作成 -->
+        <mxCell id="e_lp1" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="lp_list" target="lp_new" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- エッジ: LP一覧 → 編集 -->
+        <mxCell id="e_lp2" value="" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="lp_list" target="lp_edit" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- エッジ: 新規作成 → 編集 -->
+        <mxCell id="e_lp3" value="保存後" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;" edge="1" source="lp_new" target="lp_edit" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- エッジ: 編集 → 公開ページ -->
+        <mxCell id="e_lp4" value="PUBLISHED" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;" edge="1" source="lp_edit" target="lp_pub" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
         <!-- 凡例 -->
         <mxCell id="leg_bg" value="" style="rounded=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
-          <mxGeometry x="10" y="510" width="200" height="80" as="geometry"/>
+          <mxGeometry x="10" y="510" width="200" height="110" as="geometry"/>
         </mxCell>
         <mxCell id="leg_title" value="凡例" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=12;fontStyle=1;" vertex="1" parent="1">
           <mxGeometry x="25" y="518" width="160" height="20" as="geometry"/>
@@ -111,6 +151,12 @@
         </mxCell>
         <mxCell id="leg3" value="橙: タグ系ページ" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" vertex="1" parent="1">
           <mxGeometry x="25" y="576" width="160" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg4" value="黄: LP管理ページ" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="25" y="594" width="160" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg5" value="赤: LP公開ページ（独立）" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="25" y="612" width="180" height="16" as="geometry"/>
         </mxCell>
 
       </root>
