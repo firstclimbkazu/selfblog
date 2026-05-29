@@ -1,11 +1,18 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function ProfileView() {
   return (
     <div className="max-w-2xl mx-auto px-6 py-12">
       <div className="flex items-center gap-5 mb-8">
-        <div className="w-20 h-20 rounded-full bg-[var(--sotw-moss-bg)] flex items-center justify-center flex-shrink-0">
-          <div className="w-8 h-8 bg-[var(--sotw-moss)] rounded-sm" />
+        <div className="w-20 h-20 rounded-full overflow-hidden flex-shrink-0">
+          <Image
+            src="/profile-icon.png"
+            alt="firstclimb kazu"
+            width={80}
+            height={80}
+            className="w-full h-full object-cover"
+          />
         </div>
         <div>
           <h1 className="text-xl font-bold text-[var(--sotw-text)] tracking-tight">
