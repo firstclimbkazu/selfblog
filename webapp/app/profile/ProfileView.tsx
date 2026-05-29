@@ -18,7 +18,7 @@ export default function ProfileView() {
       <div className="h-px bg-[var(--sotw-border)] mb-8" />
 
       <div className="prose prose-stone max-w-none mb-10">
-        <p>都市に生き、岩壁を登る。そのどちらも手放せないアラフィフ。</p>
+        <p>画面の前に座り、岩壁を登る。そのどちらも手放せないアラフィフ。</p>
         <p>
           栃木を拠点に、リモートで仕事をこなしながら、週末は岩場やジムで壁に向かう。
           テクノロジーと、クライミング・登山・自然——
