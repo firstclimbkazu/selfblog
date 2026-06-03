@@ -11,7 +11,9 @@ DO $$ BEGIN
 END $$;
 
 -- _prisma_migrations: no external access needed
-ALTER TABLE public._prisma_migrations ENABLE ROW LEVEL SECURITY;
+-- IF EXISTS ensures this is safe in Prisma's shadow database
+-- (which doesn't pre-create _prisma_migrations before running user migrations)
+ALTER TABLE IF EXISTS public._prisma_migrations ENABLE ROW LEVEL SECURITY;
 
 -- categories: public read
 ALTER TABLE public.categories ENABLE ROW LEVEL SECURITY;
