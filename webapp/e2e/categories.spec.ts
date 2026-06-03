@@ -18,16 +18,16 @@ test.describe("カテゴリページ", () => {
     await expect(page).toHaveURL("/categories/climbing");
   });
 
-  test("クライミングカテゴリに2件の記事が表示される", async ({ page }) => {
+  test("クライミングカテゴリに4件の記事が表示される", async ({ page }) => {
     await page.goto("/categories/climbing", { waitUntil: "domcontentloaded" });
     await expect(page.getByRole("heading", { level: 1 })).toContainText("クライミング");
-    await expect(page.locator("ul li")).toHaveCount(2);
+    await expect(page.locator("ul li")).toHaveCount(4);
     await expect(page.getByText("DRAFT")).not.toBeVisible();
   });
 
-  test("ギアカテゴリに1件の記事が表示される", async ({ page }) => {
+  test("ギアカテゴリに2件の記事が表示される", async ({ page }) => {
     await page.goto("/categories/gear", { waitUntil: "domcontentloaded" });
-    await expect(page.locator("ul li")).toHaveCount(1);
+    await expect(page.locator("ul li")).toHaveCount(2);
     await expect(page.getByText("スクワマ")).toBeVisible();
   });
 

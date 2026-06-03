@@ -11,7 +11,7 @@ test.describe("タグページ", () => {
     await page.goto("/tags", { waitUntil: "domcontentloaded" });
     const trainingTag = page.getByRole("link", { name: /#トレーニング/ });
     await expect(trainingTag).toBeVisible();
-    await expect(trainingTag.locator("span").last()).toContainText("2");
+    await expect(trainingTag.locator("span").last()).toContainText("3");
   });
 
   test("タグをクリックすると絞り込みページに遷移する", async ({ page }) => {
@@ -20,15 +20,15 @@ test.describe("タグページ", () => {
     await expect(page).toHaveURL("/tags/crag");
   });
 
-  test("トレーニングタグに2件の記事が表示される", async ({ page }) => {
+  test("トレーニングタグに3件の記事が表示される", async ({ page }) => {
     await page.goto("/tags/training", { waitUntil: "domcontentloaded" });
     await expect(page.getByRole("heading", { level: 1 })).toContainText("#トレーニング");
-    await expect(page.locator("ul li")).toHaveCount(2);
+    await expect(page.locator("ul li")).toHaveCount(3);
   });
 
-  test("東京タグに1件の記事が表示される", async ({ page }) => {
+  test("東京タグに2件の記事が表示される", async ({ page }) => {
     await page.goto("/tags/tokyo", { waitUntil: "domcontentloaded" });
-    await expect(page.locator("ul li")).toHaveCount(1);
+    await expect(page.locator("ul li")).toHaveCount(2);
     await expect(page.getByText("丸の内")).toBeVisible();
   });
 
