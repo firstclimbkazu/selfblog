@@ -153,6 +153,86 @@ async function main() {
 初めてのアグレッシブシューズとして十分おすすめできる。`,
     },
     {
+      title: "奥多摩・川苔山で初冬のロングハイク",
+      slug: "okutama-kawanori-hike",
+      thumbnailUrl: null,
+      status: "PUBLISHED" as const,
+      publishedAt: new Date("2026-02-02"),
+      categoryId: climbing.id,
+      tagSlugs: ["crag"],
+      body: `冬枯れの川苔山を歩いてきた。`,
+    },
+    {
+      title: "渋谷再開発の現在地",
+      slug: "shibuya-redev-now",
+      thumbnailUrl: null,
+      status: "PUBLISHED" as const,
+      publishedAt: new Date("2026-01-20"),
+      categoryId: urban.id,
+      tagSlugs: ["tokyo"],
+      body: `渋谷の再開発はどこまで来たのか。`,
+    },
+    {
+      title: "Black Diamond Momentum の使用感",
+      slug: "bd-momentum-impression",
+      thumbnailUrl: null,
+      status: "PUBLISHED" as const,
+      publishedAt: new Date("2026-01-05"),
+      categoryId: gear.id,
+      tagSlugs: ["review"],
+      body: `初心者向けハーネスとして人気のMomentum。`,
+    },
+    {
+      title: "ハイトレ100マイラーへの第一歩",
+      slug: "trail-running-first-step",
+      thumbnailUrl: null,
+      status: "PUBLISHED" as const,
+      publishedAt: new Date("2025-12-15"),
+      categoryId: climbing.id,
+      tagSlugs: ["training"],
+      body: `トレイルランへ踏み出した記録。`,
+    },
+    {
+      title: "奥武蔵の秋クライミング合宿",
+      slug: "okumusashi-autumn-camp",
+      thumbnailUrl: null,
+      status: "PUBLISHED" as const,
+      publishedAt: new Date("2025-11-28"),
+      categoryId: climbing.id,
+      tagSlugs: ["crag", "training"],
+      body: `奥武蔵でクライミング合宿を行ってきた。`,
+    },
+    {
+      title: "ハングボードトレ50日チャレンジ",
+      slug: "hangboard-50days",
+      thumbnailUrl: null,
+      status: "PUBLISHED" as const,
+      publishedAt: new Date("2025-11-15"),
+      categoryId: climbing.id,
+      tagSlugs: ["training"],
+      body: `ハングボードを50日間続けた記録。`,
+    },
+    {
+      title: "アラフィフからのキャンパスボード入門",
+      slug: "campus-board-intro",
+      thumbnailUrl: null,
+      status: "PUBLISHED" as const,
+      publishedAt: new Date("2025-11-01"),
+      categoryId: climbing.id,
+      tagSlugs: ["training"],
+      body: `キャンパスボードに踏み出した。`,
+    },
+    {
+      title: "自宅トレで5級突破",
+      slug: "home-training-5kyu",
+      thumbnailUrl: null,
+      status: "PUBLISHED" as const,
+      publishedAt: new Date("2025-10-20"),
+      categoryId: climbing.id,
+      tagSlugs: ["training"],
+      body: `自宅トレーニングだけで5級を突破した話。`,
+    },
+    {
       title: "（下書き）秋の城ヶ崎海岸レポート",
       slug: "jogasaki-autumn-draft",
       thumbnailUrl: null,
@@ -175,7 +255,7 @@ async function main() {
     }
   }
 
-  console.log("Seed complete: 3 categories, 5 articles (1 draft), 5 tags");
+  console.log("Seed complete: 3 categories, 13 articles (1 draft), 5 tags");
 }
 
 main()

@@ -198,6 +198,46 @@ async function main() {
       body: `トレイルランへ踏み出した記録。`,
     },
     {
+      title: "奥武蔵の秋クライミング合宿",
+      slug: "okumusashi-autumn-camp",
+      thumbnailUrl: null,
+      status: "PUBLISHED" as const,
+      publishedAt: new Date("2025-11-28"),
+      categoryId: climbing.id,
+      tagSlugs: ["crag", "training"],
+      body: `奥武蔵でクライミング合宿を行ってきた。`,
+    },
+    {
+      title: "ハングボードトレ50日チャレンジ",
+      slug: "hangboard-50days",
+      thumbnailUrl: null,
+      status: "PUBLISHED" as const,
+      publishedAt: new Date("2025-11-15"),
+      categoryId: climbing.id,
+      tagSlugs: ["training"],
+      body: `ハングボードを50日間続けた記録。`,
+    },
+    {
+      title: "アラフィフからのキャンパスボード入門",
+      slug: "campus-board-intro",
+      thumbnailUrl: null,
+      status: "PUBLISHED" as const,
+      publishedAt: new Date("2025-11-01"),
+      categoryId: climbing.id,
+      tagSlugs: ["training"],
+      body: `キャンパスボードに踏み出した。`,
+    },
+    {
+      title: "自宅トレで5級突破",
+      slug: "home-training-5kyu",
+      thumbnailUrl: null,
+      status: "PUBLISHED" as const,
+      publishedAt: new Date("2025-10-20"),
+      categoryId: climbing.id,
+      tagSlugs: ["training"],
+      body: `自宅トレーニングだけで5級を突破した話。`,
+    },
+    {
       title: "（下書き）秋の城ヶ崎海岸レポート",
       slug: "jogasaki-autumn-draft",
       thumbnailUrl: null,
@@ -245,7 +285,7 @@ async function main() {
     ],
   });
 
-  console.log("E2E seed complete: 4 categories, 9 articles (1 draft), 5 tags, 2 LPs (1 draft)");
+  console.log("E2E seed complete: 4 categories, 13 articles (1 draft), 5 tags, 2 LPs (1 draft)");
 }
 
 main()

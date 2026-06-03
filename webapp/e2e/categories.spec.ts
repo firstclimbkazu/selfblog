@@ -18,17 +18,44 @@ test.describe("カテゴリページ", () => {
     await expect(page).toHaveURL("/categories/climbing");
   });
 
-  test("クライミングカテゴリに4件の記事が表示される", async ({ page }) => {
+  test("クライミングカテゴリ1ページ目に6件の記事が表示される", async ({ page }) => {
     await page.goto("/categories/climbing", { waitUntil: "domcontentloaded" });
     await expect(page.getByRole("heading", { level: 1 })).toContainText("クライミング");
-    await expect(page.locator("ul li")).toHaveCount(4);
+    await expect(page.getByRole("list", { name: "記事リスト" }).locator("li")).toHaveCount(6);
     await expect(page.getByText("DRAFT")).not.toBeVisible();
   });
 
   test("ギアカテゴリに2件の記事が表示される", async ({ page }) => {
     await page.goto("/categories/gear", { waitUntil: "domcontentloaded" });
-    await expect(page.locator("ul li")).toHaveCount(2);
+    await expect(page.getByRole("list", { name: "記事リスト" }).locator("li")).toHaveCount(2);
     await expect(page.getByText("スクワマ")).toBeVisible();
+  });
+
+  test("クライミングカテゴリにページネーションが表示される", async ({ page }) => {
+    await page.goto("/categories/climbing", { waitUntil: "domcontentloaded" });
+    const pagination = page.getByRole("navigation", { name: "ページネーション" });
+    await expect(pagination).toBeVisible();
+    await expect(pagination.getByText("1", { exact: true })).toHaveAttribute(
+      "aria-current",
+      "page"
+    );
+  });
+
+  test("クライミングカテゴリの2ページ目で残り記事が表示される", async ({ page }) => {
+    await page.goto("/categories/climbing?page=2", { waitUntil: "domcontentloaded" });
+    await expect(page.getByRole("list", { name: "記事リスト" }).locator("li")).toHaveCount(2);
+    const pagination = page.getByRole("navigation", { name: "ページネーション" });
+    await expect(pagination.getByText("2", { exact: true })).toHaveAttribute(
+      "aria-current",
+      "page"
+    );
+  });
+
+  test("ギアカテゴリは1ページに収まるためページネーション非表示", async ({ page }) => {
+    await page.goto("/categories/gear", { waitUntil: "domcontentloaded" });
+    await expect(
+      page.getByRole("navigation", { name: "ページネーション" })
+    ).not.toBeVisible();
   });
 
   test("存在しないカテゴリで404", async ({ page }) => {
