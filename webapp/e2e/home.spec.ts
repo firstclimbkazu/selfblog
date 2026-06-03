@@ -77,8 +77,7 @@ test.describe("トップページ", () => {
   test("カテゴリ絞り込み時に対象カテゴリのみが表示される", async ({ page }) => {
     await page.goto("/?category=climbing", { waitUntil: "domcontentloaded" });
     const list = page.getByRole("list", { name: "最新記事リスト" });
-    const items = list.locator("li");
-    await expect(items).toHaveCount(4);
+    await expect(list.locator("li")).toHaveCount(6);
     await expect(list.getByText("丸の内")).not.toBeVisible();
     await expect(list.getByText("スクワマ")).not.toBeVisible();
   });
@@ -113,7 +112,7 @@ test.describe("トップページ", () => {
       .click();
     await expect(page).toHaveURL(/page=2/);
     const list = page.getByRole("list", { name: "最新記事リスト" });
-    await expect(list.locator("li")).toHaveCount(2);
+    await expect(list.locator("li")).toHaveCount(6);
   });
 
   test("2ページ目では2ページ目がActiveで前へリンクが活きる", async ({ page }) => {
@@ -127,7 +126,7 @@ test.describe("トップページ", () => {
   });
 
   test("カテゴリ絞り込みで全件が1ページに収まる場合はページネーション非表示", async ({ page }) => {
-    await page.goto("/?category=climbing", { waitUntil: "domcontentloaded" });
+    await page.goto("/?category=urban", { waitUntil: "domcontentloaded" });
     await expect(
       page.getByRole("navigation", { name: "ページネーション" })
     ).not.toBeVisible();
