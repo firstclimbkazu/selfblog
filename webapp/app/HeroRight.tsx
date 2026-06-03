@@ -21,10 +21,10 @@ export default function HeroRight({ articles }: Props) {
         <Link
           key={article.id}
           href={`/posts/${article.slug}`}
-          className="group flex gap-4 bg-[var(--sotw-surface)] border border-[var(--sotw-border)] rounded-lg overflow-hidden hover:border-[var(--sotw-moss)] transition-colors flex-1 p-4"
+          className="group flex bg-[var(--sotw-surface)] border border-[var(--sotw-border)] rounded-lg overflow-hidden hover:border-[var(--sotw-moss)] transition-colors flex-1 min-h-0"
         >
-          <div className="relative w-32 h-full flex-shrink-0 rounded overflow-hidden bg-[var(--sotw-surface-alt)]">
-            {article.thumbnailUrl ? (
+          {article.thumbnailUrl && (
+            <div className="relative w-40 h-full flex-shrink-0 bg-[var(--sotw-surface-alt)]">
               <Image
                 src={article.thumbnailUrl}
                 alt={article.title}
@@ -32,14 +32,10 @@ export default function HeroRight({ articles }: Props) {
                 sizes="160px"
                 className="object-cover"
               />
-            ) : (
-              <div className="w-full h-full flex items-center justify-center">
-                <div className="w-6 h-6 bg-[var(--sotw-moss-bg)] rounded" />
-              </div>
-            )}
-          </div>
+            </div>
+          )}
 
-          <div className="flex-1 min-w-0 flex flex-col gap-2">
+          <div className="flex-1 min-w-0 flex flex-col gap-1.5 justify-center p-4">
             <div className="flex items-center gap-2">
               {article.category && (
                 <span className="text-xs font-medium text-[var(--sotw-moss)] bg-[var(--sotw-moss-bg)] px-2 py-0.5 rounded">
@@ -59,7 +55,7 @@ export default function HeroRight({ articles }: Props) {
                 </time>
               )}
             </div>
-            <h3 className="text-sm md:text-base font-bold text-[var(--sotw-text)] group-hover:text-[var(--sotw-moss)] transition-colors leading-snug line-clamp-2">
+            <h3 className="text-sm font-bold text-[var(--sotw-text)] group-hover:text-[var(--sotw-moss)] transition-colors leading-snug line-clamp-2">
               {article.title}
             </h3>
           </div>

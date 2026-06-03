@@ -17,8 +17,8 @@ export default function HeroLeft({ article }: Props) {
       href={`/posts/${article.slug}`}
       className="group flex flex-col bg-[var(--sotw-surface)] border border-[var(--sotw-border)] rounded-lg overflow-hidden hover:border-[var(--sotw-moss)] transition-colors h-full"
     >
-      <div className="relative w-full aspect-[16/9] bg-[var(--sotw-surface-alt)]">
-        {article.thumbnailUrl ? (
+      {article.thumbnailUrl && (
+        <div className="relative w-full flex-1 min-h-0 bg-[var(--sotw-surface-alt)]">
           <Image
             src={article.thumbnailUrl}
             alt={article.title}
@@ -27,14 +27,10 @@ export default function HeroLeft({ article }: Props) {
             className="object-cover"
             priority
           />
-        ) : (
-          <div className="w-full h-full flex items-center justify-center">
-            <div className="w-10 h-10 bg-[var(--sotw-moss-bg)] rounded" />
-          </div>
-        )}
-      </div>
+        </div>
+      )}
 
-      <div className="flex flex-col gap-3 p-6">
+      <div className="flex flex-col gap-2 p-5 flex-shrink-0">
         <div className="flex items-center gap-3">
           {article.category && (
             <span className="text-xs font-medium text-[var(--sotw-moss)] bg-[var(--sotw-moss-bg)] px-2 py-0.5 rounded">
@@ -55,7 +51,7 @@ export default function HeroLeft({ article }: Props) {
           )}
         </div>
 
-        <h2 className="text-xl md:text-2xl font-bold text-[var(--sotw-text)] group-hover:text-[var(--sotw-moss)] transition-colors leading-snug line-clamp-3">
+        <h2 className="text-lg md:text-xl font-bold text-[var(--sotw-text)] group-hover:text-[var(--sotw-moss)] transition-colors leading-snug line-clamp-2">
           {article.title}
         </h2>
 

@@ -42,7 +42,7 @@ export default async function HeroSection() {
   return (
     <section
       aria-label="注目記事"
-      className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-4 mb-12"
+      className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-4 mb-12 lg:h-[440px]"
     >
       <HeroLeft article={mainArticle} />
       <HeroRight articles={subArticles} />
