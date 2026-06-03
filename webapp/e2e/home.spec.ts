@@ -13,24 +13,39 @@ test.describe("トップページ", () => {
     await expect(page.getByRole("link", { name: "Still On The Wall" }).first()).toBeVisible();
   });
 
-  test("公開記事が4件表示される", async ({ page }) => {
-    const cards = page.locator("ul li");
-    await expect(cards).toHaveCount(4);
+  test("注目記事セクションが表示される", async ({ page }) => {
+    await expect(page.getByRole("region", { name: "注目記事" })).toBeVisible();
+  });
+
+  test("注目記事の左メインカードに最新記事が表示される", async ({ page }) => {
+    const hero = page.getByRole("region", { name: "注目記事" });
+    await expect(hero.getByRole("heading", { level: 2 })).toContainText("瑞牆山");
+    await expect(hero.getByRole("link", { name: /続きを読む/ })).toBeVisible();
+  });
+
+  test("注目記事の右側にサブ記事が2件並ぶ", async ({ page }) => {
+    const hero = page.getByRole("region", { name: "注目記事" });
+    await expect(hero.getByRole("heading", { level: 3 })).toHaveCount(2);
+  });
+
+  test("最新記事リストに公開記事が4件表示される", async ({ page }) => {
+    const list = page.locator("ul").last();
+    await expect(list.locator("li")).toHaveCount(4);
   });
 
   test("DRAFT記事は表示されない", async ({ page }) => {
     await expect(page.getByText("城ヶ崎")).not.toBeVisible();
   });
 
-  test("記事カードにタイトル・カテゴリ・日付が表示される", async ({ page }) => {
-    const firstCard = page.locator("ul li").first();
+  test("最新記事カードにタイトル・カテゴリ・日付が表示される", async ({ page }) => {
+    const firstCard = page.locator("ul").last().locator("li").first();
     await expect(firstCard.getByRole("heading")).toBeVisible();
     await expect(firstCard.locator("time")).toBeVisible();
     await expect(firstCard.getByText("クライミング")).toBeVisible();
   });
 
-  test("記事カードをクリックすると詳細ページに遷移する", async ({ page }) => {
-    await page.locator("ul li").first().click();
+  test("最新記事カードをクリックすると詳細ページに遷移する", async ({ page }) => {
+    await page.locator("ul").last().locator("li").first().click();
     await expect(page).toHaveURL(/\/posts\//);
   });
 
