@@ -3,6 +3,13 @@
 -- so enabling RLS here has no effect on the application.
 -- This protects against direct PostgREST access via the anon key.
 
+-- anon role is created by Supabase; create it locally if it doesn't exist
+DO $$ BEGIN
+  IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname = 'anon') THEN
+    CREATE ROLE anon NOLOGIN;
+  END IF;
+END $$;
+
 -- _prisma_migrations: no external access needed
 ALTER TABLE public._prisma_migrations ENABLE ROW LEVEL SECURITY;
 
