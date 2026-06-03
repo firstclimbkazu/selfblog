@@ -49,6 +49,46 @@ test.describe("トップページ", () => {
     await expect(page).toHaveURL(/\/posts\//);
   });
 
+  test("カテゴリフィルタタブが表示され、すべてがActive", async ({ page }) => {
+    const tabs = page.getByRole("navigation", { name: "カテゴリフィルタ" });
+    await expect(tabs).toBeVisible();
+    await expect(tabs.getByRole("link", { name: "すべて" })).toHaveAttribute(
+      "aria-current",
+      "page"
+    );
+    await expect(tabs.getByRole("link", { name: "クライミング" })).toBeVisible();
+  });
+
+  test("カテゴリタブクリックで絞り込みURLに遷移する", async ({ page }) => {
+    await page
+      .getByRole("navigation", { name: "カテゴリフィルタ" })
+      .getByRole("link", { name: "クライミング" })
+      .click();
+    await expect(page).toHaveURL(/category=climbing/);
+  });
+
+  test("カテゴリ絞り込み時に対象カテゴリのみが表示される", async ({ page }) => {
+    await page.goto("/?category=climbing", { waitUntil: "domcontentloaded" });
+    const list = page.locator("ul").last();
+    const items = list.locator("li");
+    await expect(items).toHaveCount(2);
+    await expect(list.getByText("丸の内")).not.toBeVisible();
+    await expect(list.getByText("スクワマ")).not.toBeVisible();
+  });
+
+  test("カテゴリ絞り込み時に対応するタブがActive", async ({ page }) => {
+    await page.goto("/?category=climbing", { waitUntil: "domcontentloaded" });
+    const tabs = page.getByRole("navigation", { name: "カテゴリフィルタ" });
+    await expect(tabs.getByRole("link", { name: "クライミング" })).toHaveAttribute(
+      "aria-current",
+      "page"
+    );
+    await expect(tabs.getByRole("link", { name: "すべて" })).not.toHaveAttribute(
+      "aria-current",
+      "page"
+    );
+  });
+
   test("ナビゲーションリンクが揃っている", async ({ page }) => {
     const viewportSize = page.viewportSize();
     test.skip((viewportSize?.width ?? 1280) < 768, "モバイルナビゲーションはmobile.spec.tsでテスト");
