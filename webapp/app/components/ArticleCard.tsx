@@ -26,6 +26,7 @@ export default function ArticleCard({ article }: Props) {
               src={article.thumbnailUrl}
               alt={article.title}
               fill
+              sizes="96px"
               className="object-cover"
             />
           ) : (
