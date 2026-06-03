@@ -158,6 +158,46 @@ async function main() {
 初めてのアグレッシブシューズとして十分おすすめできる。`,
     },
     {
+      title: "奥多摩・川苔山で初冬のロングハイク",
+      slug: "okutama-kawanori-hike",
+      thumbnailUrl: null,
+      status: "PUBLISHED" as const,
+      publishedAt: new Date("2026-02-02"),
+      categoryId: climbing.id,
+      tagSlugs: ["crag"],
+      body: `冬枯れの川苔山を歩いてきた。`,
+    },
+    {
+      title: "渋谷再開発の現在地",
+      slug: "shibuya-redev-now",
+      thumbnailUrl: null,
+      status: "PUBLISHED" as const,
+      publishedAt: new Date("2026-01-20"),
+      categoryId: urban.id,
+      tagSlugs: ["tokyo"],
+      body: `渋谷の再開発はどこまで来たのか。`,
+    },
+    {
+      title: "Black Diamond Momentum の使用感",
+      slug: "bd-momentum-impression",
+      thumbnailUrl: null,
+      status: "PUBLISHED" as const,
+      publishedAt: new Date("2026-01-05"),
+      categoryId: gear.id,
+      tagSlugs: ["review"],
+      body: `初心者向けハーネスとして人気のMomentum。`,
+    },
+    {
+      title: "ハイトレ100マイラーへの第一歩",
+      slug: "trail-running-first-step",
+      thumbnailUrl: null,
+      status: "PUBLISHED" as const,
+      publishedAt: new Date("2025-12-15"),
+      categoryId: climbing.id,
+      tagSlugs: ["training"],
+      body: `トレイルランへ踏み出した記録。`,
+    },
+    {
       title: "（下書き）秋の城ヶ崎海岸レポート",
       slug: "jogasaki-autumn-draft",
       thumbnailUrl: null,
@@ -205,7 +245,7 @@ async function main() {
     ],
   });
 
-  console.log("E2E seed complete: 4 categories, 5 articles (1 draft), 5 tags, 2 LPs (1 draft)");
+  console.log("E2E seed complete: 4 categories, 9 articles (1 draft), 5 tags, 2 LPs (1 draft)");
 }
 
 main()
