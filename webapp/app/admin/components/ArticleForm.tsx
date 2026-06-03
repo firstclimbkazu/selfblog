@@ -18,6 +18,7 @@ type Props = {
     categoryId?: string | null;
     tagIds?: string[];
     thumbnailUrl?: string | null;
+    featuredOrder?: number | null;
   };
 };
 
@@ -128,6 +129,26 @@ export default function ArticleForm({
             <p className="text-xs text-[var(--sotw-text-3)]">最大 5MB / JPG・PNG・WebP</p>
           </div>
         </div>
+      </div>
+
+      {/* 注目記事スロット */}
+      <div>
+        <label className="block text-sm font-medium text-[var(--sotw-text)] mb-1">
+          注目記事スロット
+        </label>
+        <select
+          name="featuredOrder"
+          defaultValue={defaultValues.featuredOrder ?? ""}
+          className="w-full px-3 py-2 border border-[var(--sotw-border)] rounded-lg text-[var(--sotw-text)] bg-[var(--sotw-bg)] focus:outline-none focus:border-[var(--sotw-moss)]"
+        >
+          <option value="">— なし —</option>
+          <option value="1">1: メイン（左大カード）</option>
+          <option value="2">2: 右上カード</option>
+          <option value="3">3: 右下カード</option>
+        </select>
+        <p className="mt-1 text-xs text-[var(--sotw-text-3)]">
+          既に同じスロットに別の記事が設定されている場合、自動で外されます。
+        </p>
       </div>
 
       {/* カテゴリ */}

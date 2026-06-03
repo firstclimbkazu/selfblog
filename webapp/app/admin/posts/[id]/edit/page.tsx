@@ -45,6 +45,7 @@ export default async function EditPostPage({ params }: Props) {
           categoryId: article.categoryId,
           tagIds: article.articleTags.map((at) => at.tagId),
           thumbnailUrl: article.thumbnailUrl,
+          featuredOrder: article.featuredOrder,
         }}
       />
     </div>
