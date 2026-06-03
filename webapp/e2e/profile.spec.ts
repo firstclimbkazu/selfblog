@@ -11,7 +11,7 @@ test.describe("プロフィールページ", () => {
   });
 
   test("自己紹介文が表示される", async ({ page }) => {
-    await expect(page.getByText("都市に生き、岩壁を登る")).toBeVisible();
+    await expect(page.getByText("画面の前に座り、岩壁を登る")).toBeVisible();
   });
 
   test("GitHubリンクが存在する", async ({ page }) => {
@@ -22,7 +22,7 @@ test.describe("プロフィールページ", () => {
   });
 
   test("Xリンクが存在する", async ({ page }) => {
-    const xLink = page.getByRole("link", { name: /X \(Twitter\)/ });
+    const xLink = page.getByRole("link", { name: /@Stillonthewall/ });
     await expect(xLink).toBeVisible();
     await expect(xLink).toHaveAttribute("href", /x\.com/);
   });
