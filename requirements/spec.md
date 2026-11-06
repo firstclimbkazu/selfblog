@@ -5,7 +5,7 @@
 「Still On The Wall」は、都市と自然を往復するアラフィフの知的好奇心を発信する個人ブログ。
 IT・山・サブカル・ランニング・日々のニュース・日記を多面的に語る。
 
-- **ドメイン**: stillonthewall.com
+- **ドメイン**: firstclimb.net
 - **技術スタック**: Next.js（React）/ Vercel / Supabase（PostgreSQL + Storage）/ NextAuth.js（Google OAuth）/ Prisma
 - **リポジトリ**: GitHub
 
@@ -267,18 +267,18 @@ Figma デザインシステムに基づいた配色・タイポグラフィを�
 ### Sprint 10: Vercel デプロイと本番環境設定
 
 **ゴール:**
-Vercel に本番デプロイし、stillonthewall.com でアクセスできる状態にする。
+Vercel に本番デプロイし、firstclimb.net でアクセスできる状態にする。
 
 **機能:**
 - [ ] GitHub リポジトリに push し、Vercel と連携する
 - [ ] Vercel の環境変数に本番 Supabase の接続情報を設定する
-- [ ] カスタムドメイン（stillonthewall.com）を設定する
+- [x] カスタムドメイン（firstclimb.net / www.firstclimb.net）を設定する
 - [ ] HTTPS が有効であることを確認する
 - [ ] 本番環境の Supabase にテーブルと初期データを投入する
 - [ ] main ブランチへの push で自動デプロイされることを確認する
 
 **受け入れ基準:**
-- `https://stillonthewall.com` にアクセスするとトップページが表示される（Playwright で確認）
+- `https://firstclimb.net` にアクセスするとトップページが表示される（Playwright で確認）
 - `http://` でアクセスすると `https://` にリダイレクトされる
 - トップページの表示が 3 秒以内に完了する（Lighthouse の LCP 基準）
 - GitHub の main ブランチに push すると Vercel で自動デプロイが開始される
