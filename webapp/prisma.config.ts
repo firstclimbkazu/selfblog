@@ -9,7 +9,10 @@ export default defineConfig({
     path: "prisma/migrations",
     seed: "npx tsx prisma/seed.ts",
   },
+  // マイグレーションは advisory lock を使うため transaction mode の pooler
+  // (:6543) では無言でハングする。DIRECT_URL (session mode, :5432) を優先する。
+  // 未設定のローカル環境では DATABASE_URL にフォールバックする。
   datasource: {
-    url: process.env["DATABASE_URL"],
+    url: process.env["DIRECT_URL"] ?? process.env["DATABASE_URL"],
   },
 });
